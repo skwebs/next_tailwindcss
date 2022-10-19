@@ -1,0 +1,27 @@
+{
+  "editor.tabSize": 2,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  //   "editor.columnSelection": true,
+  "editor.definitionLinkOpensInPeek": true,
+  "editor.experimental.pasteActions.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.suggest.preview": true,
+  "files.autoSave": "afterDelay",
+  "workbench.editor.highlightModifiedTabs": true,
+  "window.closeWhenEmpty": true,
+  "notebook.outline.showCodeCells": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.useInlineCompletions": true,
+  "html-css-class-completion.enableEmmetSupport": true,
+  "prettier.jsxBracketSameLine": true,
+  "prettier.resolveGlobalModules": false,
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.jsx": "javascriptreact"
+  },
+  "editor.formatOnSave": true
+}
