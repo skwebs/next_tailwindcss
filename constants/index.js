@@ -6,26 +6,26 @@ import { GrFacebookOption } from "react-icons/gr"
 const AppNavLinks = [
     {
         'name': 'Home',
-        'link': '/'
+        'href': '/'
     },
     {
         'name': 'About Us',
-        'link': 'about'
+        'href': '/about'
     },
     {
         'name': 'Contact Us',
-        'link': 'contact'
+        'href': '/contact'
     }, {
         'name': 'Register',
-        'link': 'register'
+        'href': 'register'
     },
     {
         'name': 'Login',
-        'link': 'login'
+        'href': '/login'
     },
     {
         'name': 'Sitemap',
-        'link': 'sitemap'
+        'href': '/sitemap'
     },
 
 ]

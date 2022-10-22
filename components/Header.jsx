@@ -13,6 +13,7 @@ const Header = () => {
       clearInterval(intervalId)
     };
   }, []);
+
   return (
     <>
       <div className=' p-1 border-b'>
@@ -21,16 +22,17 @@ const Header = () => {
             {/* left side */}
             <div>Left side</div>
             {/* right side */}
-            <div className='text-slate-900 font-semibold w-44'>
+            <div className='text-slate-900 font-semibold w-56'>
               {domLoaded ?
                 dateState.toLocaleString('en-GB', {
                   timeZone: 'Asia/Kolkata',
-                  day: 'numeric',
+                  weekday: 'short',
+                  day: '2-digit',
                   month: 'short',
                   year: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  second: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  second: '2-digit',
                   hour12: true,
                 }) : ""
               }
