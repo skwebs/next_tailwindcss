@@ -60,17 +60,17 @@ const Navigation = () => {
               </nav>
               <div className="ml-2 flex justify-center items-center space-x-2 ">
                 <button
-                  className="p-[2px] hover:ring-slate-300 rounded-full hover:ring-[2px] hover:ring-offset-2  transition duration-300  dark:hover:ring-slate-700"
+                  className="p-2 transition duration-300 rounded-full hover:bg-slate-700/5 dark:hover:bg-white/10"
                   onClick={() => dispatch(nightModeAction.toggle())}>
                   {nightModeSelector.nightMode ? (
-                    <MdOutlineWbSunny className="text-2xl" />
+                    <MdOutlineWbSunny className="text-2xl text-yellow-400" />
                   ) : (
-                    <MdNightlight className="text-2xl -rotate-45" />
+                    <MdNightlight className="text-2xl -rotate-45 text-gray-300" />
                   )}
                 </button>
 
                 <button
-                  className="bg-slate-200 hover:bg-transparent p-[3px] ring-slate-300 rounded-full hover:ring-[2px] hover:ring-offset-1  transition duration-300 dark:bg-gray-700 dark:hover:ring-slate-700"
+                  className="p-2 transition duration-300 rounded-full bg-slate-700/5 hover:bg-slate-700/10 dark:bg-white/5 dark:hover:bg-white/10"
                   onClick={() => alert("user")}>
                   <MdPerson className="text-2xl" />
                 </button>

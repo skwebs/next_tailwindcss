@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       {/* divider */}
       <div className='my-container'>
-        <hr className='w-full dark:border-slate-900' />
+        <hr className='w-full dark:border-slate-700' />
       </div>
       {/* footer from here */}
       <div className='w-full my-py'>
