@@ -23,5 +23,6 @@
     "*.js": "javascriptreact",
     "*.jsx": "javascriptreact"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on"
 }

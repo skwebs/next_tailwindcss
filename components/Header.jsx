@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 const Header = () => {
   const [dateState, setDateState] = useState(new Date());
   const [domLoaded, setDomLoaded] = useState(false);
+  
   useEffect(() => {
     setDomLoaded(true);
     const intervalId = setInterval(() => {
@@ -16,15 +17,13 @@ const Header = () => {
 
   return (
     <>
-      <div className=' p-1 border-b'>
-        <div className='container mx-auto'>
-          <div className='flex justify-between items-center'>
+      <div className='w-full border-b dark:border-slate-700 py-1 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-400'>
+        <div className='my-container'>
+          <div className='w-full flex md:justify-between md:items-center flex-col justify-start md:flex-row'>
             {/* left side */}
-            <div>Left side</div>
-            {/* right side */}
-            <div className='text-slate-900 font-semibold w-56'>
+            <div className='whitespace-nowrap font-semibold border-b dark:border-b-slate-700 md:border-none'>
               {domLoaded ?
-                dateState.toLocaleString('en-GB', {
+                dateState.toLocaleString('en-IN', {
                   timeZone: 'Asia/Kolkata',
                   weekday: 'short',
                   day: '2-digit',
@@ -33,11 +32,24 @@ const Header = () => {
                   hour: '2-digit',
                   minute: '2-digit',
                   second: '2-digit',
-                  hour12: true,
+                  hour12: true
                 }) : ""
               }
             </div>
+            {/* right side */}
+            <div className='flex-grow md:pl-8'>
+              <marquee>
+                <div className='flex space-x-12 '>
+                  <span>This is first notification</span>
+                  <span>This is first notification</span>
+                  <span>This is first notification</span>
+                  <span>This is first notification</span>
+                </div>
+              </marquee>
+            </div>
+
           </div>
+
         </div>
       </div>
     </>

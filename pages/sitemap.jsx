@@ -1,19 +1,19 @@
 import Head from "next/head"
 
-const Register = () => {
+const Sitemap = () => {
   return (
     <>
       <Head>
-        <title>Register Page</title>
+        <title>Sitemap Page</title>
         <meta name="theme-color" content="#00f" />
       </Head>
       <div className="w-full my-py">
         <div className='my-container'>
-          <h1>Register</h1>
+          <h1>Sitemap</h1>
         </div>
       </div>
     </>
   )
 }
 
-export default Register
+export default Sitemap

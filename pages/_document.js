@@ -5,7 +5,7 @@ class CustomDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
-
+  // style={{ backgroundImage: `url("bg.jpg")`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}
   render() {
     return (
       <Html lang="en-IN">
@@ -14,7 +14,7 @@ class CustomDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </Html >
     );
   }
 }

@@ -17,7 +17,7 @@ const AppNavLinks = [
         'href': '/contact'
     }, {
         'name': 'Register',
-        'href': 'register'
+        'href': '/register'
     },
     {
         'name': 'Login',

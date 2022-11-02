@@ -5,9 +5,10 @@ const Login = () => {
     <>
       <Head>
         <title>Login Page</title>
+        <meta name="theme-color" content="#00f" />
       </Head>
-      <div className='w-full bg-white p-4'>
-        <div className='container mx-auto'>
+      <div className="w-full my-py">
+        <div className='my-container'>
           <h1>Login</h1>
         </div>
       </div>

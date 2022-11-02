@@ -1,25 +1,30 @@
 import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
-import Navigation from './Navigation';
+import SidebarDrawer from './SidebarDrawer';
+
+import HeaderComponent from './HeaderComponent';
+
 
 const Layout = ({ children }) => {
   return (
     <>
       <div className='flex flex-col min-h-screen'>
-        <header className='flex-grow-0'>
-          <Header />
+
+        <header className='flex-grow-0 sticky top-0 left-0'>
+          <HeaderComponent />
         </header>
-        <nav className='sticky top-0 left-0'>
-          <Navigation />
-        </nav>
-        <main className='flex-1 py-8'>
+
+        <main className='flex-1'>
           {children}
         </main>
+
         <footer className='flex-grow-0'>
           <Footer />
         </footer>
+
       </div>
+      <SidebarDrawer />
     </>
   )
 }
