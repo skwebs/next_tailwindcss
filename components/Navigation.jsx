@@ -8,6 +8,7 @@ import {
   MdOutlineWbSunny,
   MdPerson,
 } from "react-icons/md";
+import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { iconAction, nightModeAction, sidebarAction } from "../store";
@@ -48,9 +49,9 @@ const Navigation = () => {
                       <Link href={link.href}>
                         <a
                           className={`${pathname === link.href
-                            ? "text-sky-500 bg-black/5 rounded"
+                            ? " text-sky-500 bg-black/5 rounded"
                             : " text-slate-700 dark:text-slate-400"
-                            } font-semibold px-3 py-2 hover:underline hover:underline-offset-8`}>
+                            } font-semibold px-3 py-2 hover:underline hover:underline-offset-8 scale-150`}>
                           {link.name}
                         </a>
                       </Link>
@@ -59,18 +60,14 @@ const Navigation = () => {
                 </ul>
               </nav>
               <div className="ml-2 flex justify-center items-center space-x-2 ">
-                <button
-                  className="p-2 transition duration-300 rounded-full hover:bg-slate-700/5 dark:hover:bg-white/10"
+                <button title={nightModeSelector.nightMode ? 'Enable Light Mode' : 'Enable Dark Mode'}
+                  className="p-2 transition duration-300 rounded-lg hover:bg-slate-700/5 active:bg-slate-700/10 active:text-slate-800 dark:hover:bg-white/10 dark:active:bg-white/20 dark:active:text-slate-300"
                   onClick={() => dispatch(nightModeAction.toggle())}>
-                  {nightModeSelector.nightMode ? (
-                    <MdOutlineWbSunny className="text-2xl text-yellow-400" />
-                  ) : (
-                    <MdNightlight className="text-2xl -rotate-45 text-gray-300" />
-                  )}
+                  {nightModeSelector.nightMode ? (<BsSunFill className="text-2xl" />) : (<BsMoonFill className="text-2xl" />)}
                 </button>
 
-                <button
-                  className="p-2 transition duration-300 rounded-full bg-slate-700/5 hover:bg-slate-700/10 dark:bg-white/5 dark:hover:bg-white/10"
+                <button title="Open user option"
+                  className="group p-2 transition duration-300 rounded-full bg-slate-700/5 hover:bg-slate-700/10 active:text-slate-800 dark:bg-white/5 dark:hover:bg-white/10 dark:active:bg-white/20 dark:active:text-slate-300"
                   onClick={() => alert("user")}>
                   <MdPerson className="text-2xl" />
                 </button>

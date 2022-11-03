@@ -20,9 +20,9 @@ const Header = () => {
   return (
     <>
 
-      <div className="w-full border-b dark:border-slate-700 py-1 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-400">
+      <div className="w-full border-b  py-1">
         <div className="my-container">
-          <div className="w-full flex md:justify-between md:items-center flex-col justify-start md:flex-row">
+          <div className="relative w-full flex md:justify-between md:items-center flex-col justify-start md:flex-row">
             {/* left side */}
             <div className="min-w-[230px] whitespace-nowrap font-semibold border-b dark:border-b-slate-700 md:border-none">
               {domLoaded
@@ -44,16 +44,16 @@ const Header = () => {
             <div></div>
 
             {/* right side */}
-            <div className="w-full md:ml-8">
-              <Marquee gradientWidth={100} speed={50} pauseOnHover>
+            <div className="w-full md:ml-8 after:absolute after:w-10 after:bg-red after:top-0 after:left-0 marquee-wrapper">
+              <Marquee gradient={false} speed={50} pauseOnHover>
                 <div className="flex space-x-10 md:pl-8">
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/about`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="text-blue-700 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
                 </div>
               </Marquee>
 
