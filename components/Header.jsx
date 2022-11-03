@@ -17,10 +17,12 @@ const Header = () => {
     };
   }, []);
 
+  const marqueeLinkStyle = 'dark:hover:text-slate-300 hover:underline active:text-sky-500';
+
   return (
     <>
 
-      <div className="w-full border-b  py-1">
+      <div className="w-full border-b dark:border-b-slate-700 py-1">
         <div className="my-container">
           <div className="relative w-full flex md:justify-between md:items-center flex-col justify-start md:flex-row">
             {/* left side */}
@@ -40,23 +42,19 @@ const Header = () => {
                 : ""}
             </div>
 
-            {/* middle */}
-            <div></div>
-
             {/* right side */}
-            <div className="w-full md:ml-8 after:absolute after:w-10 after:bg-red after:top-0 after:left-0 marquee-wrapper">
+            <div className="w-full md:ml-8 before:w-10 before:bg-red-700">
               <Marquee gradient={false} speed={50} pauseOnHover>
-                <div className="flex space-x-10 md:pl-8">
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
-                  <Link href={`/`}><a className="hover:text-slate-900 dark:hover:text-slate-300 hover:underline">This is a link for notification</a></Link>
+                <div className="space-x-10 md:pl-8">
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
+                  <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>
                 </div>
               </Marquee>
-
             </div>
           </div>
         </div>

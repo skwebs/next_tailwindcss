@@ -8,7 +8,7 @@ import {
   MdOutlineWbSunny,
   MdPerson,
 } from "react-icons/md";
-import { BsSunFill, BsMoonFill } from 'react-icons/bs'
+import { BsSunFill, BsMoonFill, BsFillPersonFill } from 'react-icons/bs'
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { iconAction, nightModeAction, sidebarAction } from "../store";
@@ -16,6 +16,8 @@ import { iconAction, nightModeAction, sidebarAction } from "../store";
 const Navigation = () => {
   const dispatch = useDispatch();
   let nightModeSelector = useSelector((state) => state.nightMode);
+
+  const navBtnStyle = 'group p-2 text-slate-600 bg-slate-700/10 hover:bg-transparent hover:outline outline-2 outline-slate-300  active:outline-slate-500 dark:bg-white/10 dark:hover:outline-slate-700 dark:active:outline-slate-400';
 
   const router = useRouter();
   const { asPath, pathname } = router;
@@ -30,7 +32,7 @@ const Navigation = () => {
             <div className="flex items-center h-14">
               <MdMenu
                 onClick={() => dispatch(sidebarAction.toggle())}
-                className=" md:hidden text-5xl p-3 mr-3 hover:bg-slate-100 transition duration-200 rounded-full cursor-pointer dark:hover:bg-white/10"
+                className=" md:hidden text-5xl p-3 mr-3 hover:bg-slate-100 active:text-slate-600 active:bg-slate-200 rounded-full cursor-pointer  dark:hover:bg-white/10 dark:active:text-slate-300 dark:active:bg-white/20"
               />
               <Link href={`/`}>
                 <a>
@@ -49,9 +51,9 @@ const Navigation = () => {
                       <Link href={link.href}>
                         <a
                           className={`${pathname === link.href
-                            ? " text-sky-500 bg-black/5 rounded"
-                            : " text-slate-700 dark:text-slate-400"
-                            } font-semibold px-3 py-2 hover:underline hover:underline-offset-8 scale-150`}>
+                            ? " text-sky-500 active:bg-sky-500/5 dark:active:bg-sky-600/10"
+                            : " text-slate-700 dark:text-slate-400 active:bg-slate-600/5 dark:active:bg-slate-100/5"
+                            } rounded-md font-semibold px-3 py-2 hover:underline hover:underline-offset-8  `}>
                           {link.name}
                         </a>
                       </Link>
@@ -61,15 +63,15 @@ const Navigation = () => {
               </nav>
               <div className="ml-2 flex justify-center items-center space-x-2 ">
                 <button title={nightModeSelector.nightMode ? 'Enable Light Mode' : 'Enable Dark Mode'}
-                  className="p-2 transition duration-300 rounded-lg hover:bg-slate-700/5 active:bg-slate-700/10 active:text-slate-800 dark:hover:bg-white/10 dark:active:bg-white/20 dark:active:text-slate-300"
+                  className={`${navBtnStyle} rounded-md`}
                   onClick={() => dispatch(nightModeAction.toggle())}>
                   {nightModeSelector.nightMode ? (<BsSunFill className="text-2xl" />) : (<BsMoonFill className="text-2xl" />)}
                 </button>
 
                 <button title="Open user option"
-                  className="group p-2 transition duration-300 rounded-full bg-slate-700/5 hover:bg-slate-700/10 active:text-slate-800 dark:bg-white/5 dark:hover:bg-white/10 dark:active:bg-white/20 dark:active:text-slate-300"
-                  onClick={() => alert("user")}>
-                  <MdPerson className="text-2xl" />
+                  className={`${navBtnStyle} rounded-full`}
+                  onClick={() => console.log("user clicked!")}>
+                  <BsFillPersonFill className="text-2xl" />
                 </button>
               </div>
             </div>
