@@ -14,7 +14,7 @@ const Footer = () => {
       <div className='w-full my-py'>
         <div className='my-container'>
           <div className=' dark:border-slate-600 '>
-            <div className='my-bg-trans rounded-2xl'>
+            <div>
 
               <div className=" md:flex md:items-center md:justify-between mx-auto ">
                 <span className="flex text-sm text-slate-500 dark:text-slate-300 sm:text-center">  <span className='px-2'>&copy; {new Date().getFullYear()}{" "}</span> <Link href="/"><a><Brand/></a></Link>. All Rights Reserved.

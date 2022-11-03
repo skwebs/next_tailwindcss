@@ -3,8 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 import SidebarDrawer from './SidebarDrawer';
 
-import HeaderComponent from './HeaderComponent';
-
 
 const Layout = ({ children }) => {
   return (
@@ -12,7 +10,7 @@ const Layout = ({ children }) => {
       <div className='flex flex-col min-h-screen'>
 
         <header className='flex-grow-0 sticky top-0 left-0'>
-          <HeaderComponent />
+          <Header />
         </header>
 
         <main className='flex-1'>
