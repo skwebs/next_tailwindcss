@@ -50,7 +50,7 @@ const Navigation = () => {
                           className={`${pathname === link.href
                             ? "text-sky-500 bg-black/5 rounded"
                             : " text-slate-700 dark:text-slate-400"
-                            } font-semibold px-3 py-2 hover:text-sky-500`}>
+                            } font-semibold px-3 py-2 hover:underline hover:underline-offset-8`}>
                           {link.name}
                         </a>
                       </Link>
