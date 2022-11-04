@@ -42,7 +42,7 @@ const TopHeader = () => {
             </div>
 
             {/* right side */}
-            <div className="w-full md:ml-8 before:w-10 before:bg-red-700">
+            <div className="w-full md:ml-8">
               <Marquee gradient={false} speed={50} pauseOnHover>
                 <div className="space-x-10 md:pl-8">
                   <Link href={`/`}><a className={`${marqueeLinkStyle}`}>This is a link for notification</a></Link>

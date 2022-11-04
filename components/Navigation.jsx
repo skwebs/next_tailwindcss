@@ -2,16 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { AppNavLinks } from "../constants";
 import Brand from "./Brand";
-import {
-  MdMenu,
-  MdNightlight,
-  MdOutlineWbSunny,
-  MdPerson,
-} from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import { BsSunFill, BsMoonFill, BsFillPersonFill } from 'react-icons/bs'
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { iconAction, nightModeAction, sidebarAction } from "../store";
+import { nightModeAction, sidebarAction } from "../store";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -53,7 +47,7 @@ const Navigation = () => {
                           className={`${pathname === link.href
                             ? " text-sky-500 active:bg-sky-500/5 dark:active:bg-sky-600/10"
                             : " text-slate-700 dark:text-slate-400 active:bg-slate-600/5 dark:active:bg-slate-100/5"
-                            } rounded-md font-semibold px-3 py-2 hover:underline hover:underline-offset-8  `}>
+                            } rounded-md font-semibold px-3 py-2 hover:underline hover:underline-offset-8 whitespace-nowrap `}>
                           {link.name}
                         </a>
                       </Link>
