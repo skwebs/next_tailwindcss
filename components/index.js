@@ -4,7 +4,9 @@ import Footer from './Footer';
 import Navigation from './Navigation';
 import Brand from './Brand';
 import TopHeader from './TopHeader';
+import SocialIcons from './SocialIcons';
+
 
 export {
-    Layout, Header, Footer, Navigation, Brand, TopHeader
+    Layout, Header, Footer, Navigation, Brand, TopHeader, SocialIcons
 }

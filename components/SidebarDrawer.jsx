@@ -4,6 +4,7 @@ import { sidebarAction } from "../store";
 import Link from "next/link";
 import { AppNavLinks } from "../constants";
 import { useRouter } from "next/router";
+import SocialIcons from "./SocialIcons";
 
 const SidebarDrawer = () => {
   const dispatch = useDispatch();
@@ -36,11 +37,11 @@ const SidebarDrawer = () => {
           } md:hidden bg-white/80 dark:bg-slate-800 transition duration-500 min-w-min w-80 max-w-[calc(100%-3rem)] shadow-xl shadow-slate-500  fixed top-0 left-0  h-screen z-50`}>
 
         {/* close button */}
-        <div className="flex justify-end mb-2 text-slate-700 dark:text-slate-400 dark:hover:text-white  hover:bg-slate-200 dark:hover:bg-white/20 active:bg-gradient-to-l active:from-transparent active:to-slate-400">
+        <div className="flex group justify-end mb-2">
           <button
-            className="flex items-center justify-end px-4 py-3 w-full ml-auto"
+            className="flex items-center justify-end px-4 py-2 w-full ml-auto"
             onClick={() => dispatch(sidebarAction.close())}>
-            Close <MdClose className="text-2xl ml-2" />
+            <span className=" px-3 py-1 rounded-2xl flex group-hover:ring-1 ring-slate-300 group-active:ring-0 group-active:bg-slate-700 group-active:text-slate-100 dark:group-hover:ring-slate-500"> Close <MdClose className="text-2xl ml-2" /></span>
           </button>
         </div>
 
@@ -66,6 +67,10 @@ const SidebarDrawer = () => {
             ))}
           </ul>
         </nav>
+
+        <div className="w-full flex justify-center mt-20 space-x-2">
+          <SocialIcons />
+        </div>
       </aside>
     </>
   );
