@@ -7,19 +7,55 @@
 }
 
 .my-my {
-  @apply my-4 md:my-6 lg:my-8;
+    @apply my-4 md:my-6 lg:my-8;
 }
 .my-py {
-  @apply py-4 md:py-6 lg:py-8;
+    @apply py-4 md:py-6 lg:py-8;
 }
 
 .my-p {
-  @apply p-4 md:p-6 lg:p-8;
+    @apply p-4 md:p-6 lg:p-8;
 }
 
 .my-bg-trans {
-  @apply bg-white/75 dark:bg-slate-900/75;
+    @apply bg-white/75 dark:bg-slate-900/75;
 }
+
+.my-input{
+  @apply block pt-2 pb-1.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600;
+}
+
+.my-input-float-label{
+  @apply block absolute peer-placeholder-shown:top-2 peer-placeholder-shown:left-0 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 transition-all duration-300 peer-placeholder-shown:text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300 
+  -top-2.5 left-0 text-xs peer-focus:-top-2.5 peer-focus:left-0 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-gray-300 peer-required:after:content-['*'] after:ml-0.5 after:text-red-500;
+}
+
+.other-float-label {
+    @apply  absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-hover:text-blue-600 dark:peer-hover:text-gray-300;
+}
+
+.my-select{
+  @apply appearance-none block pt-2 pb-1.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none  focus:border-blue-600;
+}
+
+.my-select-float-label {
+    @apply -z-10 block absolute top-2 left-0 transition-all duration-300 text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300 peer-valid:-top-2.5 peer-valid:left-0 peer-valid:text-xs peer-focus:-top-2.5 peer-focus:left-0 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-gray-300;
+}
+
+.form-underline{
+  @apply absolute bottom-0 left-0 w-full  border-b-2 border-blue-600 dark:border-gray-300 scale-0 peer-focus:scale-100 peer-hover:scale-100  transition-all duration-300;
+}
+
+  .my-select::before {
+      background-color: transparent;
+      content:"after";
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 5;
+   }
+
+
 
 html,
 body {
@@ -47,3 +83,4 @@ a {
     background: black;
   }
 }
+

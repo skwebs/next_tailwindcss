@@ -1,0 +1,73 @@
+$anim-dur: 1.5s;
+$red: #4285f4;
+$amber: #ea4335;
+$green: #fbbc05;
+$blue: #34a853;
+
+
+.spinner {
+  animation: rotation #{$anim-dur} linear infinite,
+    color calc(#{$anim-dur} * 4) linear calc(#{$anim-dur}*.13) infinite;
+}
+.multi {
+  animation: rotation #{$anim-dur} linear infinite,
+    color calc(#{$anim-dur} * 4) linear calc(#{$anim-dur}*.13) infinite;
+}
+.mono {
+  animation: rotation #{$anim-dur} linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circle {
+  stroke-dasharray: 185;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: turn #{$anim-dur} ease-in-out infinite;
+}
+
+@keyframes turn {
+  0% {
+    stroke-dashoffset: 185;
+  }
+
+  50% {
+    stroke-dashoffset: 45;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    stroke-dashoffset: 185;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes color {
+  0%,
+  24.99% {
+    stroke: #{$red};
+  }
+
+  25%,
+  49.99% {
+    stroke: #{$amber};
+  }
+
+  50%,
+  74.99% {
+    stroke: #{$green};
+  }
+
+  75%,
+  99.99% {
+    stroke: #{$blue};
+  }
+}
