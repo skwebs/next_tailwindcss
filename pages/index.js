@@ -1,24 +1,7 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
-// import OverlayCircularProgress from "../components/OverlayCircularProgress";
 import Link from "next/link";
 
 export default function Home() {
-  //   const [data, setData] = useState(null);
-  //   const [isLoading, setLoading] = useState(false);
-  //
-  //   useEffect(() => {
-  //     setLoading(true);
-  //     fetch("http://localhost:8000/api/stu-parent")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setData(data);
-  //         setLoading(false);
-  //       });
-  //   }, []);
-  //
-  //   if (isLoading) return <OverlayCircularProgress message="Loading" />;
-  //   if (!data) return <OverlayCircularProgress message="No data found" />;
 
   return (
     <>

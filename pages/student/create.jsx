@@ -1,125 +1,27 @@
 import Head from "next/head"
 import { useState } from 'react';
 import axios from './../../lib/axios';
-import useSWR from 'swr'
-// import Select from "react-tailwindcss-select";
 import { clazz, occupations, qualifications } from './../../constants/form'
 
 
 const Create = () => {
+    const [errors, setErrors] = useState(null);
     const [userData, setUserData] = useState({
-        "father_name": "",
-        "father_contact": "",
-        "father_contact_2": "",
-        "father_whatsapp": "",
-        "father_email": "",
-        "father_qualification": "",
-        "father_occupation": "",
-        "father_annual_income": "",
-        "father_photo": "",
-
-        "mother_name": "",
-        "mother_contact": "",
-        "mother_contact_2": "",
-        "mother_whatsapp": "",
-        "mother_email": "",
-        "mother_qualification": "",
-        "mother_occupation": "",
-        "mother_annual_income": "",
-        "mother_photo": "",
-
-        "created_by": 2
+        father_name: "", father_contact: "", father_contact_2: "", father_whatsapp: "", father_email: "", father_qualification: "",
+        father_occupation: "", father_annual_income: "", father_photo: "",
+        mother_name: "", mother_contact: "", mother_contact_2: "", mother_whatsapp: "", mother_email: "", mother_qualification: "",
+        mother_occupation: "", mother_annual_income: "", mother_photo: "",
+        created_by: ""
     });
 
-    const [errors, setErrors] = useState(null);
-
-    const { data: user, error, mutate } = useSWR('/api/stu-parent', () =>
-        axios
-            .get('/api/stu-parent')
-            .then(res => res.data)
-            .catch(error => {
-                if (error.response.status !== 409) throw error
-
-                router.push('/verify-email')
-            }),
-    )
-
-    const csrf = () => axios.get("/sanctum/csrf-cookie");
-
-    const createStuParent = async () => {
-        await csrf();
-
-        setErrors([]);
-
-        // try {
-        //     const { data } = await axios.post("/api/stu-parent", userData);
-        //     // mutate();
-        //     console.log(data);
-        // } catch (err) {
-        //     // Handle Error Here
-        //     console.error(err);
-        // }
-
-        console.log("clicked");
-        // console.log(staticUserData);
-        axios
-            // .post("/api/stu-parent", userData)
-            .post("/api/stu-parent", staticUserData)
-            .then((res) => console.log(res.data))
-            .catch((error) => {
-                if (error.response.status !== 422) throw error;
-                setErrors(error.response.data.errors);
-                console.warn(error)
-            });
-    };
-    const staticUserData1 = {
-        "father_name": "test",
-        "father_contact": "6973757920",
-        "father_qualification": "matric",
-        "father_occupation": "teacher",
-        "father_annual_income": 0,
-        "mother_name": "test devi",
-        "mother_qualification": "inter",
-        "mother_occupation": "inter",
-        "created_by": 2
-    };
-
-    const staticUserData = {
-        "father_name": "test",
-        "father_contact": "6973757920",
-        "father_contact_2": "9973757920",
-        "father_whatsapp": "9973757920",
-        "father_email": "00satish2015@gmail.com",
-        "father_qualification": "isc",
-        "father_occupation": "teacher",
-        "father_annual_income": 0,
-        "father_photo": "image.jpg",
-
-        "mother_name": "test",
-        "mother_contact": "6973757920",
-        "mother_contact_2": "9973757920",
-        "mother_whatsapp": "9973757920",
-        "mother_email": "00satish2015@gmail.com",
-        "mother_qualification": "isc",
-        "mother_occupation": "teacher",
-        "mother_annual_income": 0,
-        "mother_photo": "image.jpg",
-
-        "created_by": 2
-    };
-
-    const gender = [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" }
-    ];
+    const csrf = () => axios.get('/sanctum/csrf-cookie');
 
     const handleChange = e => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
+
         console.log(userData);
     }
-
-    const [records, setRecords] = useState([]);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -127,48 +29,27 @@ const Create = () => {
 
         setErrors([]);
 
-        console.log("clicked");
-        createStuParent();
-        // axios
-        //     .post("/api/stu-parent", userData)
-        //     .then(() => mutate())
-        //     .catch((error) => {
-        //         if (error.response.status !== 422) throw error;
-        //         setErrors(error.response.data.errors);
-        //         console.warn(error)
-        //     });
-        const newRecord = { ...userData, id: Date.now() };
+        try {
+            const { data } = await axios.post("/api/stu-parent", { ...userData, created_by: 2 });
+            console.log(data);
+        } catch (err) {
+            // Handle Error Here
+            if (error.response.status !== 422) throw error;
+            setErrors(error.response.data.errors);
+            console.log("Error:", error)
+        }
 
-        setRecords([...records, newRecord]);
-        console.log(records);
         setUserData({
-            "father_name": "",
-            "father_contact": "",
-            "father_contact_2": "",
-            "father_whatsapp": "",
-            "father_email": "",
-            "father_qualification": "",
-            "father_occupation": "",
-            "father_annual_income": "",
-            "father_photo": "",
-
-            "mother_name": "",
-            "mother_contact": "",
-            "mother_contact_2": "",
-            "mother_whatsapp": "",
-            "mother_email": "",
-            "mother_qualification": "",
-            "mother_occupation": "",
-            "mother_annual_income": "",
-            "mother_photo": "",
-
-            "created_by": ""
+            father_name: "", father_contact: "", father_contact_2: "", father_whatsapp: "", father_email: "", father_qualification: "",
+            father_occupation: "", father_annual_income: "", father_photo: "",
+            mother_name: "", mother_contact: "", mother_contact_2: "", mother_whatsapp: "", mother_email: "", mother_qualification: "",
+            mother_occupation: "", mother_annual_income: "", mother_photo: "",
+            created_by: ""
         });
 
-        console.log(records);
-        console.log(userData);
+        console.log("userData:", userData);
+        console.log("error-state:", errors)
     }
-
 
     return (
         <>
@@ -205,6 +86,12 @@ const Create = () => {
                                             <input value={userData.father_contact} onChange={handleChange} type="tel" pattern="^[6-9][\d]{9}$" title="Must have 10 digits & should be start from 6,7,8 or 9" name="father_contact" id="father_contact" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
                                             <label htmlFor="father_contact" className="my-input-float-label">Father's Contact No.</label>
+                                        </div>
+
+                                        <div className="relative z-0 w-full group">
+                                            <input value={userData.father_contact_2} onChange={handleChange} type="tel" pattern="^[6-9][\d]{9}$" title="Must have 10 digits & should be start from 6,7,8 or 9" name="father_contact_2" id="father_contact_2" className="my-input peer" placeholder=" " />
+                                            <span className='form-underline'></span>
+                                            <label htmlFor="father_contact_2" className="my-input-float-label">Father's Contact No. 2</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
@@ -269,6 +156,12 @@ const Create = () => {
                                             <label htmlFor="mother_contact" className="my-input-float-label">Mother's Contact No.</label>
                                         </div>
 
+                                        <div className="relative z-0 w-full group">
+                                            <input value={userData.mother_contact_2} onChange={handleChange} type="tel" name="mother_contact_2" id="mother_contact_2" pattern="^[6-9][\d]{9}$" className="my-input peer" placeholder=" " />
+                                            <span className='form-underline'></span>
+                                            <label htmlFor="mother_contact_2" className="my-input-float-label">Mother's Contact No. 2</label>
+                                        </div>
+
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_whatsapp} onChange={handleChange} type="tel" name="mother_whatsapp" id="mother_whatsapp" pattern="^[6-9][\d]{9}$" className="my-input peer" placeholder=" " />
@@ -289,9 +182,9 @@ const Create = () => {
                                         </div>
 
                                         <div className="relative z-0 w-full group">
-                                            <input value={userData.mother_annual_income} onChange={handleChange} type="number" name="mother_annual_income" id="mid_name" className="my-input peer" placeholder=" " />
+                                            <input value={userData.mother_annual_income} onChange={handleChange} type="number" name="mother_annual_income" id="mother_annual_income" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mid_name" className="my-input-float-label">Mother's Annual Income</label>
+                                            <label htmlFor="mother_annual_income" className="my-input-float-label">Mother's Annual Income</label>
                                         </div>
 
                                     </div>
@@ -302,13 +195,7 @@ const Create = () => {
                                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:scale-95 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
                             </form>
-                            <button onClick={() => createStuParent()} type="submit" className="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:scale-95 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
-
                         </div>
-
-                        {/* <Select />
-            <SelectBottomLine /> */}
-
 
                     </div>
                 </div>

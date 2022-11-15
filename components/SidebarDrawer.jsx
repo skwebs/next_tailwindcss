@@ -29,7 +29,7 @@ const SidebarDrawer = () => {
       <div
         onClick={() => dispatch(sidebarAction.close())}
         className={` ${sidebarSelector.sidebar ? " opacity-100 z-40" : " opacity-0 -z-10"
-          } backdrop-blur-sm fixed inset-0 bg-black/20 my-transition md:hidden `}></div>
+          } backdrop-blur-sm fixed inset-0 bg-black/20 transition-opacity duration-300 ease-in-out md:hidden `}></div>
 
       {/* Sidebar */}
       <aside
