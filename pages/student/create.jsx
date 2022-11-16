@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { useState } from 'react';
-import axios from './../../lib/axios';
-import { clazz, occupations, qualifications } from './../../constants/form'
+import axios from '@/lib/axios';
+import { clazz, occupations, qualifications } from '@/constants/form'
 
 
 const Create = () => {
@@ -18,7 +18,7 @@ const Create = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setUserData({ ...userData, [name]: value });
+        setUserData(prev => ({ ...prev, [name]: value }));
 
         console.log(userData);
     }

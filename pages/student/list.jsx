@@ -1,33 +1,46 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import OverlayCircularProgress from "../../components/OverlayCircularProgress";
-import axios from "../../lib/axios";
+import OverlayCircularProgress from "@/components/OverlayCircularProgress";
+import axios from "@/lib/axios";
 
 
 const List = () => {
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(false);
 
-    const getData = async () => {
-        const { data } = await axios.get('/api/stu-parent');
-        setData(data);
-        setLoading(false);
-        console.log(data);
+    const getData = async (cs) => {
+        // const { data } = await axios.get('/api/stu-parent', {
+        //     signal: cs
+        // });
+        // setData(data);
+        // setLoading(false);
+        // console.log(data);
+
+        axios.get('/api/stu-parent', {
+            signal: cs
+        }).then(({ data }) => {
+            setData(data);
+            setLoading(false);
+            console.log(data);
+        }).catch((error) => {
+            // if (error.response.status !== 409) throw error;
+            console.log(error)
+        });
     }
 
 
     useEffect(() => {
         setLoading(true);
-        getData();
 
-        // fetch("http://localhost:8000/api/stu-parent")
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         setData(data);
-        //         setLoading(false);
-        //         console.log(data);
-        //     });
+        const controller = new AbortController();
+
+        getData(controller.signal);
+
+        return () => {
+            controller.abort();
+            setLoading(false);
+        };
     }, []);
 
 
