@@ -17,7 +17,7 @@
   "emmet.triggerExpansionOnTab": true,
   "emmet.useInlineCompletions": true,
   "html-css-class-completion.enableEmmetSupport": true,
-  "prettier.jsxBracketSameLine": true,
+  "prettier.bracketSameLine": true,
   "prettier.resolveGlobalModules": false,
   "files.associations": {
     "*.js": "javascriptreact",

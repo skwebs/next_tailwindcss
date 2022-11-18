@@ -32,7 +32,7 @@ const Create = () => {
         try {
             const { data } = await axios.post("/api/stu-parent", { ...userData, created_by: 2 });
             console.log(data);
-        } catch (err) {
+        } catch (error) {
             // Handle Error Here
             if (error.response.status !== 422) throw error;
             setErrors(error.response.data.errors);
