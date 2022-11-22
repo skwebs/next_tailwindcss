@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useState } from 'react';
 import axios from '@/lib/axios';
 import { clazz, occupations, qualifications } from '@/constants/form'
+import { FormInputText } from "@/components/Form";
 
 
 const Create = () => {
@@ -67,43 +68,44 @@ const Create = () => {
 
                                 {/* father section */}
                                 <div className="bg-white dark:bg-slate-700 shadow rounded-lg p-4 mb-6">
-                                    <h3 className="font-semibold text-sky-500 mb-6">Father's Details:</h3>
+                                    <h3 className="font-semibold text-sky-500 mb-6">Father&apos;s Details:</h3>
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
                                         <div className="relative z-0 w-full group md:col-span-2">
                                             <input value={userData.father_name} onChange={handleChange} pattern="^[A-Za-z][A-Za-z\s]{3,30}$" title="Must have minimum 3 characters or maximum 30 characters." type="text" name="father_name" id="father_name" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_name" className="my-input-float-label">Father's Name</label>
+                                            <label htmlFor="father_name" className="other-float-label">Father&apos;s Name</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_email} onChange={handleChange} type="email" name="father_email" id="father_email" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_email" className="my-input-float-label">Father's E-mail</label>
+                                            <label htmlFor="father_email" className="other-float-label">Father&apos;s E-mail</label>
                                         </div>
 
-                                        <div className="relative z-0 w-full group">
+                                        {/* <div className="relative z-0 w-full group">
                                             <input value={userData.father_contact} onChange={handleChange} type="tel" pattern="^[6-9][\d]{9}$" title="Must have 10 digits & should be start from 6,7,8 or 9" name="father_contact" id="father_contact" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_contact" className="my-input-float-label">Father's Contact No.</label>
-                                        </div>
+                                            <label htmlFor="father_contact" className="other-float-label">Father&apos;s Contact No.</label>
+                                        </div> */}
+                                        <FormInputText id={`father_contact`} value={userData.father_contact} label="Father Contact" onChange={handleChange} name="father_contact" required pattern="^[6-9][\d]{9}$" title="Must have 10 digits & should be start from 6,7,8 or 9" />
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_contact_2} onChange={handleChange} type="tel" pattern="^[6-9][\d]{9}$" title="Must have 10 digits & should be start from 6,7,8 or 9" name="father_contact_2" id="father_contact_2" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_contact_2" className="my-input-float-label">Father's Contact No. 2</label>
+                                            <label htmlFor="father_contact_2" className="other-float-label">Father&apos;s Contact No. 2</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_whatsapp} onChange={handleChange} pattern="^[6-9][\d]{9}$" type="tel" title="Must have 10 digits & should be start from 6,7,8 or 9" name="father_whatsapp" id="father_whatsapp" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_whatsapp" className="my-input-float-label">Father's WhatsApp No.</label>
+                                            <label htmlFor="father_whatsapp" className="other-float-label">Father&apos;s WhatsApp No.</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_qualification} onChange={handleChange} list="qualification" type="text" name="father_qualification" id="father_qualification" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_qualification" className="my-input-float-label">Father's Qualification</label>
+                                            <label htmlFor="father_qualification" className="other-float-label">Father&apos;s Qualification</label>
                                             <datalist id="qualification">
                                                 {qualifications.map((o, i) => (
                                                     <option key={i} value={o.value}  ></option>
@@ -114,7 +116,7 @@ const Create = () => {
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_occupation} onChange={handleChange} list="occupations" type="text" name="father_occupation" id="father_occupation" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_occupation" className="my-input-float-label">Father's Occupation</label>
+                                            <label htmlFor="father_occupation" className="other-float-label">Father&apos;s Occupation</label>
                                             <datalist id="occupations">
                                                 {occupations.map((o, i) => (
                                                     <option key={i} value={o.value} ></option>
@@ -125,7 +127,7 @@ const Create = () => {
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.father_annual_income} onChange={handleChange} type="number" name="father_annual_income" id="father_annual_income" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="father_annual_income" className="my-input-float-label">Father's Annual Income</label>
+                                            <label htmlFor="father_annual_income" className="other-float-label">Father&apos;s Annual Income</label>
                                         </div>
 
                                     </div>
@@ -135,56 +137,56 @@ const Create = () => {
 
                                 {/* mother section */}
                                 <div className="bg-white dark:bg-slate-700 shadow rounded-lg p-4 mb-6">
-                                    <h3 className="font-semibold text-sky-500 mb-6">Mother's Details:</h3>
+                                    <h3 className="font-semibold text-sky-500 mb-6">Mother&apos;s Details:</h3>
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                         <div className="md:col-span-2 relative z-0 w-full group">
                                             <input value={userData.mother_name} onChange={handleChange} type="text" name="mother_name" pattern="^[A-Za-z][A-Za-z\s]{3,30}$" title="Must have minimum 3 characters or maximum 30 characters." id="mother_name" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_name" className="my-input-float-label">Mother's Name</label>
+                                            <label htmlFor="mother_name" className="other-float-label">Mother&apos;s Name</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_email} onChange={handleChange} type="email" name="mother_email" id="mother_email" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_email" className="my-input-float-label">Mother's E-mail Id</label>
+                                            <label htmlFor="mother_email" className="other-float-label">Mother&apos;s E-mail Id</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_contact} onChange={handleChange} type="tel" name="mother_contact" id="mother_contact" pattern="^[6-9][\d]{9}$" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_contact" className="my-input-float-label">Mother's Contact No.</label>
+                                            <label htmlFor="mother_contact" className="other-float-label">Mother&apos;s Contact No.</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_contact_2} onChange={handleChange} type="tel" name="mother_contact_2" id="mother_contact_2" pattern="^[6-9][\d]{9}$" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_contact_2" className="my-input-float-label">Mother's Contact No. 2</label>
+                                            <label htmlFor="mother_contact_2" className="other-float-label">Mother&apos;s Contact No. 2</label>
                                         </div>
 
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_whatsapp} onChange={handleChange} type="tel" name="mother_whatsapp" id="mother_whatsapp" pattern="^[6-9][\d]{9}$" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_whatsapp" className="my-input-float-label">Mother's WhatsApp No.</label>
+                                            <label htmlFor="mother_whatsapp" className="other-float-label">Mother&apos;s WhatsApp No.</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_qualification} onChange={handleChange} list="qualification" type="text" name="mother_qualification" id="mother_qualification" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_qualification" className="my-input-float-label">Mother's Qualification</label>
+                                            <label htmlFor="mother_qualification" className="other-float-label">Mother&apos;s Qualification</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_occupation} onChange={handleChange} list="occupations" type="text" name="mother_occupation" id="mother_occupation" className="my-input peer" placeholder=" " required />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_occupation" className="my-input-float-label">Mother's Occupation</label>
+                                            <label htmlFor="mother_occupation" className="other-float-label">Mother&apos;s Occupation</label>
                                         </div>
 
                                         <div className="relative z-0 w-full group">
                                             <input value={userData.mother_annual_income} onChange={handleChange} type="number" name="mother_annual_income" id="mother_annual_income" className="my-input peer" placeholder=" " />
                                             <span className='form-underline'></span>
-                                            <label htmlFor="mother_annual_income" className="my-input-float-label">Mother's Annual Income</label>
+                                            <label htmlFor="mother_annual_income" className="other-float-label">Mother&apos;s Annual Income</label>
                                         </div>
 
                                     </div>

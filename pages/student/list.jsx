@@ -30,6 +30,7 @@ const List = () => {
         try {
             const { data } = await axios.delete(`/api/stu-parent/${id}`);
             console.log("response-data:", data);
+            mutate();
         } catch (error) {
             // Handle Error Here
             // if (error.response.status !== 422) throw error;
@@ -42,12 +43,15 @@ const List = () => {
     }
 
     useEffect(() => {
-
+        let cancelRequest = false;
+        if (cancelRequest) {
+            return;
+        }
         if (!router.isReady) return;
         setQueryString(location.search);
 
         return () => {
-
+            cancelRequest = true;
         };
     }, [router.isReady]);
 
@@ -56,7 +60,7 @@ const List = () => {
 
     if (!data) return <OverlayCircularProgress message="Loading" />
 
-    const tableColNames = ['S.N.', 'Father\'s Name', 'Father\'s Email', 'Father\'s Contact', 'Father\'s Contact 2', 'Father\'s WhatsApp', 'Father\'s Qualification', 'Father\'s Occupation', 'Father\'s Annual Income', 'Mother\'s Name', 'Mother\'s Contact', '	Mother\'s Contact 2', '	Mother\'s WhatsApp', 'Mother\'s Qualification', 'Mother\'s Occupation', 'Mother\'s Annual Income', 'Action'];
+    const tableColNames = ['S.N.', 'Father\'s Name', 'Father\'s Email', 'Father\'s Contact', 'Father\'s Contact 2', 'Father\'s WhatsApp', 'Father\'s Qualification', 'Father\'s Occupation', 'Father\'s Annual Income', 'Mother\'s Name', 'Mother\'s Contact', '	Mother\'s Contact 2', '	Mother\'s WhatsApp', 'Mother\'s Qualification', 'Mother\'s Occupation', 'Mother\'s Annual Income', 'Action', 'S.N.'];
 
     return (
         <>
@@ -95,7 +99,7 @@ const List = () => {
 
                                                 <tr className=" whitespace-nowrap border-b dark:border-slate-600">
                                                     {tableColNames.map((d, i, r) => (
-                                                        <th key={i} scope="col" className={`text-md font-medium dark:text-slate-300 px-6 py-4 ${r.length === (i + 1) ? 'text-center' : 'text-left'}`}>
+                                                        <th key={i} scope="col" className={`text-md font-medium dark:text-slate-300 px-6 py-4 ${r.length === (i + 2) ? 'text-center' : 'text-left'}`}>
                                                             {d}
                                                         </th>
                                                     ))}
@@ -187,6 +191,12 @@ const List = () => {
 
                                                             <button onClick={() => deleteData(d.id)} className="mx-1 rounded px-2 py-1 font-medium text-red-500  hover:ring-[2px] hover:ring-red-500  active:bg-red-500 active:text-white dark:hover:ring-red-500  dark:active:bg-red-500">Delete</button>
                                                         </td>
+                                                        <th
+                                                            scope="row"
+                                                            className="whitespace-nowrap py-3 px-6 text-center  font-medium md:py-4 "
+                                                        >
+                                                            {d.id}
+                                                        </th>
                                                     </tr>
                                                 ))}
                                             </tbody>

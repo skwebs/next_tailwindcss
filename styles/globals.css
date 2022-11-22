@@ -26,12 +26,12 @@
 }
 
 .my-input-float-label{
-  @apply block absolute peer-placeholder-shown:top-2 peer-placeholder-shown:left-0 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 transition-all duration-300 peer-placeholder-shown:text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300 
+  @apply block absolute peer-placeholder-shown:top-2 peer-placeholder-shown:left-0 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 transition-all duration-300 peer-placeholder-shown:text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300
   -top-2.5 left-0 text-xs peer-focus:-top-2.5 peer-focus:left-0 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-gray-300 peer-required:after:content-['*'] after:ml-0.5 after:text-red-500;
 }
 
 .other-float-label {
-    @apply  absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-hover:text-blue-600 dark:peer-hover:text-gray-300;
+  @apply  absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-hover:text-blue-600 dark:peer-hover:text-gray-300;
 }
 
 .my-select{
@@ -39,7 +39,7 @@
 }
 
 .my-select-float-label {
-    @apply -z-10 block absolute top-2 left-0 transition-all duration-300 text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300 peer-valid:-top-2.5 peer-valid:left-0 peer-valid:text-xs peer-focus:-top-2.5 peer-focus:left-0 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-gray-300;
+    @apply -z-10 block absolute top-2 left-0 transition-all duration-300 text-sm peer-hover:text-blue-600 dark:peer-hover:text-gray-300 peer-valid:-top-2.5 peer-valid:left-0 peer-valid:text-xs peer-focus:-top-2.5 peer-focus:left-0 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-gray-300 peer-required:after:content-['*'] after:ml-0.5 after:text-red-500;
 }
 
 .form-underline{
@@ -83,4 +83,3 @@ a {
     background: black;
   }
 }
-
