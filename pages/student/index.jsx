@@ -194,13 +194,13 @@ const List = () => {
                                                             {d.mother_annual_income}
                                                         </td>
                                                         <td className=" whitespace-nowrap px-4">
-                                                            <Link href={`/student/${window.btoa(d.id)}`}>
+                                                            <Link href={`/student/view/?id=${window.btoa(d.id)}`}>
                                                                 <a className="mx-1 rounded px-2 py-1 font-medium text-sky-600  hover:ring-[2px] hover:ring-sky-500  active:bg-sky-500 active:text-white dark:hover:ring-sky-600 dark:active:bg-sky-600">
                                                                     View
                                                                 </a>
                                                             </Link>
 
-                                                            <Link href={`/student/${window.btoa(d.id)}/edit`}>
+                                                            <Link href={`/student/edit/?id=${window.btoa(d.id)}`}>
                                                                 <a className="mx-1 rounded px-2 py-1 font-medium text-amber-600  hover:ring-[2px] hover:ring-amber-500  active:bg-amber-500 active:text-white dark:hover:ring-amber-600 dark:active:bg-amber-600">
                                                                     Edit
                                                                 </a>

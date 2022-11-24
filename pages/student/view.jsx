@@ -130,8 +130,8 @@ const Edit = () => {
 
               {apiData && "" !== apiData && (
                 <>
-                  <div className="w-[600px]">
-                    <div className="flex">
+                  <div className="w-96 md:w-[600px]">
+                    <div className="flex flex-col md:flex-row w-full">
                       <div className="w-2/3">
                         <table className="table text-left whitespace-nowrap">
                           <tbody>
@@ -144,10 +144,10 @@ const Edit = () => {
                         </table>
                       </div>
                       <div className="w-1/3 pl-2 pb-2">
-                        <div className="W-full bg-white border rounded h-full hover:shadow"></div>
+                        <div className="W-full bg-white border rounded h-full min-h-[150px] hover:shadow"></div>
                       </div>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-2/3">
                         <table className="table text-left whitespace-nowrap">
                           <tbody>
@@ -160,7 +160,7 @@ const Edit = () => {
                         </table>
                       </div>
                       <div className="w-1/3 pl-2 pb-2">
-                        <div className="W-full bg-white border rounded h-full hover:shadow"></div>
+                        <div className="W-full bg-white border rounded h-full min-h-[150px] hover:shadow"></div>
                       </div>
                     </div>
                   </div>
