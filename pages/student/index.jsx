@@ -11,9 +11,11 @@ import { useEffect, useState } from "react";
 const List = () => {
     const router = useRouter();
 
-    const [errors, setErrors] = useState(null)
+    const [errors, setErrors] = useState(null);
 
     const [queryString, setQueryString] = useState("");
+
+    const [id, setId] = useState(0);
 
     const fetcher = async (url) => await axios.get(url).then((res) => res.data);
     const { data, error, mutate } = useSWR(`/api/stu-parent${queryString}`, fetcher);
@@ -42,6 +44,13 @@ const List = () => {
         console.log(id);
     }
 
+
+    const encodeBase64 = (data) => {
+        return Buffer.from(data).toString('base64');
+    }
+    const decodeBase64 = (data) => {
+        return Buffer.from(data, 'base64').toString('ascii');
+    }
     useEffect(() => {
         let cancelRequest = false;
         if (cancelRequest) {
@@ -49,6 +58,8 @@ const List = () => {
         }
         if (!router.isReady) return;
         setQueryString(location.search);
+
+        console.log("window.btoa", window.btoa(2))
 
         return () => {
             cancelRequest = true;
@@ -183,8 +194,14 @@ const List = () => {
                                                             {d.mother_annual_income}
                                                         </td>
                                                         <td className=" whitespace-nowrap px-4">
-                                                            <Link href={`/student/edit/${d.id}`}>
+                                                            <Link href={`/student/${window.btoa(d.id)}`}>
                                                                 <a className="mx-1 rounded px-2 py-1 font-medium text-sky-600  hover:ring-[2px] hover:ring-sky-500  active:bg-sky-500 active:text-white dark:hover:ring-sky-600 dark:active:bg-sky-600">
+                                                                    View
+                                                                </a>
+                                                            </Link>
+
+                                                            <Link href={`/student/${window.btoa(d.id)}/edit`}>
+                                                                <a className="mx-1 rounded px-2 py-1 font-medium text-amber-600  hover:ring-[2px] hover:ring-amber-500  active:bg-amber-500 active:text-white dark:hover:ring-amber-600 dark:active:bg-amber-600">
                                                                     Edit
                                                                 </a>
                                                             </Link>

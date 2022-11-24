@@ -11,7 +11,7 @@ export default function Home() {
 
       <div className="my-py w-full">
         <div className="my-container">
-          <Link href={`/student/list`}>
+          <Link href={`/student`}>
             <a className="text-blue-500 underline">Go to Student List</a>
           </Link>
         </div>
