@@ -20,8 +20,8 @@ const Header = () => {
 
   return (
     <>
-      <div className={`${shadow ? "shadow-lg dark:shadow-md dark:shadow-slate-700 my-bg-trans" : ""
-        } w-full border-slate-600 transition-all ease-in-out duration-300 backdrop-blur-sm  dark:text-slate-500 `}>
+      <div className={`${shadow ? "shadow-lg dark:shadow-md dark:shadow-slate-700 " : ""
+        } bg-white/75 dark:bg-slate-900/75 w-full border-slate-600 transition-all ease-in-out duration-300 backdrop-blur-sm  dark:text-slate-500 `}>
         <TopHeader />
         <Navigation />
       </div>

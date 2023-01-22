@@ -5,6 +5,9 @@ class CustomDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
+  componentDidMount() {
+    this.theme = localStorage.theme
+  }
   // style={{ backgroundImage: `url("bg.jpg")`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}
   render() {
     return (

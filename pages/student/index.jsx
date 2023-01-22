@@ -67,7 +67,7 @@ const List = () => {
     }, [router.isReady]);
 
 
-    if (error) return <div className="w-screen my-10 font-semibold text-2xl text-red-600 flex justify-center items-center"><div className=" bg-red-50 px-4 py-3 border-b-4 border-red-600">failed to load</div></div>;
+    if (error) return <div className="w-screen my-10 font-semibold text-2xl text-red-600 flex justify-center items-center"><div className=" bg-red-50 px-4 py-3 border-b-4 border-red-600 dark:bg-slate-800 dark:text-red-800 dark:border-red-900">failed to load</div></div>;
 
     if (!data) return <OverlayCircularProgress message="Loading" />
 
@@ -90,7 +90,7 @@ const List = () => {
                                 Go Home
                             </a>
                         </Link>
-                        <h1 className="text-2xl font-semibold text-sky-500 underline">Students List</h1>
+                        <h1 className="text-xl md:text-2xl font-semibold text-sky-500 underline">Students List</h1>
                         <Link href="/student/create">
                             <a className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
                                 Create Record

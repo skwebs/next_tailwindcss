@@ -123,7 +123,7 @@ const Edit = () => {
                   <div className="flex justify-between mb-4">
                     <h2 className=" text-slate-900 dark:text-slate-500 font-semibold text-xl ">Update Record</h2>
                     <Link href="/student">
-                      <a className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 active:scale-95 dark:bg-sky-900 dark:hover:bg-sky-800">
+                      <a className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 active:scale-95 dark:bg-gray-700 dark:hover:bg-sky-800">
                         Student List
                       </a>
                     </Link>
@@ -256,7 +256,7 @@ const Edit = () => {
                   </div>
                   {/* end mother section */}
 
-                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:scale-95 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                  <button type="submit" className="focus:scale-95 focus:outline-none  text-sm w-full sm:w-auto  text-center  dark:focus:ring-blue-800 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 active:scale-95 dark:bg-gray-700 dark:hover:bg-sky-800">Submit</button>
 
                 </form>
               </div>

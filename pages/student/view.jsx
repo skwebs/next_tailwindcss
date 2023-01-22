@@ -124,8 +124,8 @@ const Edit = () => {
       <div className="w-full my-py">
         <div className='my-container'>
           <div className="flex justify-center">
-            <div className="bg-slate-50 border shadow-md px-6 py-4 rounded-lg">
-              <h2 className="text-center mb-4 bg-slate-500 rounded font-semibold text-white py-1">Parent Details</h2>
+            <div className="bg-slate-50 dark:bg-slate-800 border dark:border-slate-600 shadow-md px-6 py-4 rounded-lg">
+              <h2 className="text-center mb-4 bg-slate-500 rounded font-semibold text-white py-1 dark:bg-slate-700 dark:text-slate-400">Parent Details</h2>
 
 
               {apiData && "" !== apiData && (
@@ -144,7 +144,7 @@ const Edit = () => {
                         </table>
                       </div>
                       <div className="w-1/3 pl-2 pb-2">
-                        <div className="W-full bg-white border rounded h-full min-h-[150px] hover:shadow"></div>
+                        <div className="W-full bg-white dark:bg-slate-600 border dark:border-slate-500 rounded h-full min-h-[150px] hover:shadow"></div>
                       </div>
                     </div>
                     <div className="flex flex-col md:flex-row">
@@ -160,7 +160,7 @@ const Edit = () => {
                         </table>
                       </div>
                       <div className="w-1/3 pl-2 pb-2">
-                        <div className="W-full bg-white border rounded h-full min-h-[150px] hover:shadow"></div>
+                        <div className="W-full bg-white  dark:bg-slate-600 border dark:border-slate-500 rounded h-full min-h-[150px] hover:shadow"></div>
                       </div>
                     </div>
                   </div>

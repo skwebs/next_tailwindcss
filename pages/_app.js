@@ -6,11 +6,11 @@ import store from "@/store/index";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
     </>
   );
 }

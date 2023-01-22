@@ -9,7 +9,6 @@ const TopHeader = () => {
     useEffect(() => {
         setDomLoaded(true);
         const intervalId = setInterval(() => {
-            console.log("watching");
             setDateState(new Date());
         }, 1000);
         return function cleanUp() {
